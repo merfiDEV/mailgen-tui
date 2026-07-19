@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from "react";
-import { Box, Text, useApp, Keybind } from "@semos-labs/glyph";
+import { Box, Text, useApp, useInput, Key } from "@semos-labs/glyph";
+import { normalizeKeyName } from "../core/utils/keymap.js";
 import fs from "fs";
 import { Database } from "../core/models/database.js";
 import { TabBar, TabId } from "./components/TabBar.js";
@@ -48,6 +49,13 @@ function saveConfig(config: AppSettings) {
 
 export function App() {
   const { exit } = useApp();
+
+  useInput((key: Key) => {
+    const normalized = normalizeKeyName(key.name);
+    if (normalized === "escape" || normalized === "q") {
+      exit();
+    }
+  });
   const [activeTab, setActiveTab] = useState<TabId>("generator");
   const [config, setConfig] = useState<AppSettings>(loadConfig);
   const [db] = useState(() => new Database());
@@ -102,11 +110,7 @@ export function App() {
       {/* Tabs */}
       <TabBar active={activeTab} onSelect={setActiveTab} />
 
-      {/* Tab shortcuts */}
-      <Keybind keypress="1" onPress={handleTabShortcut("generator")} />
-      <Keybind keypress="2" onPress={handleTabShortcut("accounts")} />
-      <Keybind keypress="3" onPress={handleTabShortcut("register")} />
-      <Keybind keypress="4" onPress={handleTabShortcut("settings")} />
+
 
       {/* Content */}
       <Box style={{ flexDirection: "column" }}>
@@ -127,9 +131,7 @@ export function App() {
         )}
       </Box>
 
-      {/* Quit */}
-      <Keybind keypress="q" onPress={exit} />
-      <Keybind keypress="escape" onPress={exit} />
+
     </Box>
   );
 }
