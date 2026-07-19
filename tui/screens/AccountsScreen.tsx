@@ -85,7 +85,7 @@ export function AccountsScreen({ db, onLog }: AccountsScreenProps) {
 
       <Box style={{ flexDirection: "row", gap: 1 }}>
         <Text style={{ color: "whiteBright" }}>Поиск:</Text>
-        <Input value={search} onChange={setSearch} placeholder="фильтр по email..." />
+        <Input value={search} onChange={setSearch} style={{ border: "round", borderColor: "cyan", paddingX: 1, width: 30 }} />
       </Box>
 
       <Text style={{ dim: true }}>

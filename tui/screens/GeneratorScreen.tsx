@@ -102,14 +102,14 @@ export function GeneratorScreen({ db, config, onLog }: GeneratorScreenProps) {
 
       <Box style={{ flexDirection: "row", gap: 2 }}>
         <Text style={{ bold: true, color: "cyan" }}>Префикс:</Text>
-        <Input value={prefix} onChange={setPrefix} placeholder="ник (пусто = рандом)" />
+        <Input value={prefix} onChange={setPrefix} style={{ border: "round", borderColor: "cyan", paddingX: 1 }} />
         <Text style={{ bold: true, color: "cyan" }}>Кол-во:</Text>
-        <Input value={count} onChange={setCount} placeholder="10" />
+        <Input value={count} onChange={setCount} style={{ border: "round", borderColor: "cyan", paddingX: 1 }} />
         <Select
           items={Object.keys(PROVIDERS).map((k) => ({ label: k, value: k }))}
           value={providerKey}
           onChange={(v) => v && setProviderKey(v)}
-          placeholder="Провайдер"
+          
         />
       </Box>
 

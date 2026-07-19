@@ -66,7 +66,7 @@ export function SettingsScreen({ config, onConfigChange, onLog }: SettingsScreen
         </Box>
         <Box style={{ flexDirection: "row", gap: 2 }}>
           <Text style={{ width: 20 }}>Путь к браузеру:</Text>
-          <Input value={browserPath} onChange={setBrowserPath} placeholder="(пусто = авто)" />
+          <Input value={browserPath} onChange={setBrowserPath} style={{ border: "round", borderColor: "cyan", paddingX: 1, width: 30 }} />
         </Box>
       </Box>
 
@@ -74,11 +74,11 @@ export function SettingsScreen({ config, onConfigChange, onLog }: SettingsScreen
         <Text style={{ color: "whiteBright", bold: true }}>Потоки и лимиты</Text>
         <Box style={{ flexDirection: "row", gap: 2 }}>
           <Text style={{ width: 20 }}>Макс. потоков:</Text>
-          <Input value={maxThreads} onChange={setMaxThreads} />
+          <Input value={maxThreads} onChange={setMaxThreads} style={{ border: "round", borderColor: "cyan", paddingX: 1, width: 10 }} />
         </Box>
         <Box style={{ flexDirection: "row", gap: 2 }}>
           <Text style={{ width: 20 }}>Предупреждать при:</Text>
-          <Input value={warnOnGenerate} onChange={setWarnOnGenerate} />
+          <Input value={warnOnGenerate} onChange={setWarnOnGenerate} style={{ border: "round", borderColor: "cyan", paddingX: 1, width: 10 }} />
         </Box>
       </Box>
 
@@ -86,11 +86,11 @@ export function SettingsScreen({ config, onConfigChange, onLog }: SettingsScreen
         <Text style={{ color: "whiteBright", bold: true }}>Данные</Text>
         <Box style={{ flexDirection: "row", gap: 2 }}>
           <Text style={{ width: 20 }}>Путь к БД:</Text>
-          <Input value={dbPath} onChange={setDbPath} />
+          <Input value={dbPath} onChange={setDbPath} style={{ border: "round", borderColor: "cyan", paddingX: 1, width: 30 }} />
         </Box>
         <Box style={{ flexDirection: "row", gap: 2 }}>
           <Text style={{ width: 20 }}>Интервал проверки:</Text>
-          <Input value={checkInterval} onChange={setCheckInterval} placeholder="часы" />
+          <Input value={checkInterval} onChange={setCheckInterval} style={{ border: "round", borderColor: "cyan", paddingX: 1, width: 10 }} />
           <Text style={{ dim: true }}>часов</Text>
         </Box>
       </Box>
