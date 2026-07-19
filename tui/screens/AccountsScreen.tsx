@@ -49,6 +49,16 @@ export function AccountsScreen({ db, onLog }: AccountsScreenProps) {
     onLog(`Deleted: ${selectedAccount.email}`);
   }, [selectedAccount, db, onLog]);
 
+  const handleDeleteAll = useCallback(() => {
+    const all = db.getAllAccounts();
+    for (const acc of all) {
+      db.deleteAccount(acc.id!);
+    }
+    setSelectedIdx(-1);
+    setRefreshKey((k) => k + 1);
+    onLog(`Deleted all ${all.length} accounts`);
+  }, [db, onLog]);
+
   const handleExport = useCallback(() => {
     db.exportToFile("accounts_export.json");
     onLog("Exported to accounts_export.json");
@@ -64,6 +74,9 @@ export function AccountsScreen({ db, onLog }: AccountsScreenProps) {
         </Button>
         <Button onPress={handleDeleteSelected}>
           <Text style={{ color: "red" }}>✕ Удалить</Text>
+        </Button>
+        <Button onPress={handleDeleteAll}>
+          <Text style={{ color: "red" }}>✕ Удалить все</Text>
         </Button>
         <Button onPress={handleExport}>
           <Text>↓ Экспорт</Text>
