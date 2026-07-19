@@ -83,10 +83,10 @@ export function RegisterScreen({ db, config, onLog }: RegisterScreenProps) {
       <Text style={{ bold: true, color: "cyan" }}>Регистрация на Сайтах</Text>
 
       <Box style={{ flexDirection: "row", gap: 2 }}>
-        <Text>URL:</Text>
-        <Input value={siteUrl} onChange={setSiteUrl} placeholder="https://example.com/signup" />
-        <Text>Название:</Text>
-        <Input value={siteName} onChange={setSiteName} placeholder="имя сайта" />
+        <Text style={{ bold: true, color: "cyan" }}>URL:</Text>
+        <Input value={siteUrl} onChange={setSiteUrl} placeholder="https://example.com" />
+        <Text style={{ bold: true, color: "cyan" }}>Название:</Text>
+        <Input value={siteName} onChange={setSiteName} placeholder="MySite" />
       </Box>
 
       <Box style={{ flexDirection: "row", gap: 2 }}>
