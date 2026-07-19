@@ -1,0 +1,28 @@
+{
+  "name": "luagen",
+  "version": "1.0.0",
+  "description": "Email Generator TUI — консольная генерация временных email аккаунтов",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "dev": "tsx src/index.tsx",
+    "build": "tsc",
+    "build:exe": "bun build src/index.tsx --compile --outfile dist/luagen.exe",
+    "start": "node dist/src/index.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext .ts,.tsx"
+  },
+  "dependencies": {
+    "@semos-labs/glyph": "latest",
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "esbuild": "^0.28.1",
+    "eslint": "^9.0.0",
+    "pkg": "^5.8.1",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
