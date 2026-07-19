@@ -101,9 +101,9 @@ export function GeneratorScreen({ db, config, onLog }: GeneratorScreenProps) {
       <Text style={{ bold: true, color: "cyan" }}>Генератор Email Аккаунтов</Text>
 
       <Box style={{ flexDirection: "row", gap: 2 }}>
-        <Text>Префикс:</Text>
+        <Text style={{ bold: true, color: "cyan" }}>Префикс:</Text>
         <Input value={prefix} onChange={setPrefix} placeholder="ник (пусто = рандом)" />
-        <Text>Кол-во:</Text>
+        <Text style={{ bold: true, color: "cyan" }}>Кол-во:</Text>
         <Input value={count} onChange={setCount} placeholder="10" />
         <Select
           items={Object.keys(PROVIDERS).map((k) => ({ label: k, value: k }))}
